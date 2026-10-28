@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Responsive Styling & Mobile Optimization
+   ========================================================================== */
+
+/* Medium Screens & Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .site-header-bar {
+    padding: 6px 12px;
+  }
+
+  .header-container {
+    gap: 8px;
+  }
+
+  .header-names-summary {
+    font-size: 0.8rem;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .welcome-card-outer {
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .welcome-card-inner {
+    padding: 24px 14px;
+  }
+
+  .cover-ganesha-img {
+    max-height: 420px;
+  }
+
+  .cover-artwork-container {
+    padding: 8px;
+  }
+
+  .hanging-diya.diya-left {
+    left: 8px;
+  }
+
+  .hanging-diya.diya-right {
+    right: 8px;
+  }
+
+  .diya-chain {
+    height: 24px;
+  }
+
+  .sacred-invocation-text {
+    font-size: 1.3rem;
+  }
+
+  .auspicious-blessings-text {
+    font-size: 0.88rem;
+  }
+
+  .welcome-invitation-title {
+    font-size: 1.15rem;
+  }
+
+  .welcome-couple-box .couple-name {
+    font-size: 1.1rem;
+  }
+
+  .btn-open-invitation {
+    font-size: 1rem;
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .main-invitation-container {
+    margin: 16px auto 40px;
+    padding: 0 10px;
+  }
+
+  .toran-container {
+    margin: 0 auto -8px;
+    padding: 0 4px;
+  }
+
+  .toran-svg {
+    max-height: 68px;
+  }
+
+  .wedding-card-parchment {
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .side-jali-strip {
+    display: none;
+  }
+
+  .royal-corner-filigree {
+    width: 52px;
+    height: 52px;
+  }
+
+  .arch-svg-bar {
+    height: 36px;
+  }
+
+  .card-border-ornament {
+    padding: 20px 10px;
+    border-radius: 16px;
+  }
+
+  .official-wedding-title {
+    font-size: 1.35rem;
+  }
+
+  .couple-fullname {
+    font-size: 1.35rem;
+  }
+
+  .parent-line {
+    font-size: 1.15rem;
+  }
+
+  .date-large-golden {
+    font-size: 1.4rem;
+  }
+
+  .muhurtham-timing-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-card {
+    min-width: 65px;
+    padding: 8px 10px;
+  }
+
+  .countdown-value-box {
+    font-size: 1.35rem;
+  }
+
+  .venue-name-title {
+    font-size: 1.3rem;
+  }
+
+  .compliments-main-text {
+    font-size: 1.25rem;
+  }
+
+  .share-buttons-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-share {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-venue-action {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Screens (max-width: 420px) */
+@media (max-width: 420px) {
+  .welcome-screen-wrap {
+    padding: 16px 8px 30px;
+  }
+
+  .cover-ganesha-img {
+    max-height: 340px;
+  }
+
+  .telugu-invocation-pill {
+    font-size: 1.05rem;
+    padding: 4px 14px;
+  }
+
+  .floating-music-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .welcome-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 0.78rem;
+  }
+
+  .sacred-invocation-text {
+    font-size: 1.15rem;
+  }
+
+  .auspicious-blessings-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  .welcome-invitation-title {
+    font-size: 1.05rem;
+  }
+
+  .welcome-couple-box .couple-name {
+    font-size: 1rem;
+  }
+
+  .welcome-muhurtham-pill {
+    font-size: 0.78rem;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 10px;
+  }
+
+  .welcome-muhurtham-pill .pill-dot {
+    display: none;
+  }
+
+  .corner-ornament {
+    width: 36px;
+    height: 36px;
+  }
+
+  .card-sacred-header .sacred-invocation-text {
+    font-size: 1.25rem;
+  }
+
+  .official-wedding-title {
+    font-size: 1.2rem;
+  }
+
+  .couple-fullname {
+    font-size: 1.2rem;
+  }
+
+  .couple-fullname .title-prefix {
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .qualification-badge {
+    display: inline-block;
+    font-size: 0.82rem;
+    margin-top: 4px;
+  }
+
+  .date-large-golden {
+    font-size: 1.25rem;
+  }
+
+  .countdown-card {
+    min-width: 58px;
+    padding: 6px 6px;
+  }
+
+  .countdown-value-box {
+    font-size: 1.2rem;
+  }
+
+  .countdown-label {
+    font-size: 0.68rem;
+  }
+
+  .venue-name-title {
+    font-size: 1.18rem;
+  }
+
+  .venue-address-text {
+    font-size: 0.95rem;
+  }
+
+  .compliments-main-text {
+    font-size: 1.15rem;
+  }
+}

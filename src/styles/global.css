@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Global Design Variables & Traditional Indian Wedding Theme
+   ========================================================================== */
+
+:root {
+  /* Official Theme Colors */
+  --color-purple: #54245F;
+  --color-purple-dark: #3B1643;
+  --color-maroon: #6D1735;
+  --color-maroon-dark: #4A0C22;
+  --color-maroon-deep: #320716;
+  --color-gold: #D9AE45;
+  --color-gold-light: #F9E498;
+  --color-gold-bright: #F5C542;
+  --color-gold-dark: #9F721B;
+  --color-cream: #FFF8E8;
+  --color-cream-soft: #FDF4DD;
+  --color-cream-warm: #F8ECD0;
+  --color-white: #FFFFFF;
+  --color-green: #386641;
+  --color-green-light: #4A8756;
+  --color-text-dark: #2D1822;
+  --color-text-muted: #6B4E5D;
+
+  /* Gradients */
+  --grad-royal: linear-gradient(135deg, #54245F 0%, #6D1735 50%, #4A0C22 100%);
+  --grad-velvet: radial-gradient(circle at center, #6D1735 0%, #54245F 70%, #29081B 100%);
+  --grad-gold: linear-gradient(135deg, #FFF1B8 0%, #D9AE45 40%, #B88523 85%, #F4CE6F 100%);
+  --grad-gold-text: linear-gradient(135deg, #FFE89E 0%, #E6BA4E 50%, #C49026 100%);
+  --grad-cream-card: linear-gradient(180deg, #FFFFFF 0%, #FFF9EC 50%, #FBF0D5 100%);
+
+  /* Shadows */
+  --shadow-gold: 0 4px 20px rgba(217, 174, 69, 0.25);
+  --shadow-card: 0 10px 40px rgba(45, 12, 28, 0.35);
+  --shadow-subtle: 0 2px 10px rgba(84, 36, 95, 0.12);
+
+  /* Fonts */
+  --font-serif-title: 'Cinzel', serif;
+  --font-serif-body: 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-telugu-serif: 'Noto Serif Telugu', 'Noto Sans Telugu', serif;
+  --font-telugu-sans: 'Noto Sans Telugu', sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-purple-dark);
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(109, 23, 53, 0.7) 0%, transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(84, 36, 95, 0.8) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, rgba(217, 174, 69, 0.03) 0px, rgba(217, 174, 69, 0.03) 2px, transparent 2px, transparent 16px);
+  color: var(--color-text-dark);
+  font-family: var(--font-serif-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Language font-family switching */
+.lang-te {
+  font-family: var(--font-telugu-serif), var(--font-serif-body);
+}
+
+.lang-te h1,
+.lang-te h2,
+.lang-te h3,
+.lang-te h4 {
+  font-family: var(--font-telugu-serif);
+  line-height: 1.45;
+}
+
+.lang-en h1,
+.lang-en h2,
+.lang-en .official-wedding-title {
+  font-family: var(--font-serif-title);
+  letter-spacing: 0.04em;
+}
+
+/* Links & Buttons defaults */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.95; }
+  25% { transform: scale(1.05, 0.95) translateY(-1px); opacity: 1; }
+  50% { transform: scale(0.95, 1.05) translateY(-0.5px); opacity: 0.9; }
+  75% { transform: scale(1.03, 0.98) translateY(-1px); opacity: 1; }
+}
+
+.flame-flicker {
+  animation: flameFlicker 2.2s infinite ease-in-out;
+  transform-origin: center bottom;
+}
+
+.animated-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Toast Notification Styling */
+.toast-notification {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-maroon);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.toast-icon {
+  color: var(--color-gold-bright);
+}
+
+/* Reduced Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

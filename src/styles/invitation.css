@@ -1,0 +1,1523 @@
+/* ==========================================================================
+   Wedding Invitation Card Styling & Components
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Sticky Header Bar & Language Switcher
+   -------------------------------------------------------------------------- */
+.site-header-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(43, 11, 26, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1.5px solid var(--color-gold);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  padding: 8px 16px;
+}
+
+.header-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-header-cover {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 174, 69, 0.15);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-header-cover:hover {
+  background: var(--color-gold);
+  color: var(--color-maroon-dark);
+}
+
+.header-names-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gold-light);
+  font-family: var(--font-serif-title);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.header-names-summary .head-amp {
+  color: var(--color-gold-bright);
+  font-family: var(--font-script);
+  font-size: 1.2rem;
+}
+
+.header-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-header-music {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 174, 69, 0.15);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-header-music.playing {
+  background: var(--color-gold);
+  color: var(--color-maroon-dark);
+  box-shadow: 0 0 12px rgba(217, 174, 69, 0.4);
+}
+
+.btn-header-music.muted {
+  opacity: 0.75;
+}
+
+.btn-header-music:hover {
+  opacity: 1;
+  background: var(--color-gold);
+  color: var(--color-maroon-dark);
+}
+
+/* Floating Music Button */
+.floating-music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  border: 2px solid #FFF8E8;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(217, 174, 69, 0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(217, 174, 69, 0.7);
+}
+
+.floating-music-btn.music-muted {
+  background: rgba(43, 11, 26, 0.9);
+  color: var(--color-gold-light);
+  border-color: var(--color-gold);
+}
+
+.audio-wave-bars {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.wave-bar {
+  width: 3px;
+  background: #FFF8E8;
+  border-radius: 2px;
+  animation: audioWave 1.2s infinite ease-in-out;
+}
+
+.bar-1 { height: 6px; animation-delay: 0.1s; }
+.bar-2 { height: 12px; animation-delay: 0.3s; }
+.bar-3 { height: 8px; animation-delay: 0.2s; }
+
+@keyframes audioWave {
+  0%, 100% { height: 4px; }
+  50% { height: 14px; }
+}
+
+.music-pulse-icon {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Language Switcher Pill */
+.lang-switcher-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 8, 20, 0.85);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 24px;
+  padding: 3px 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.lang-icon {
+  color: var(--color-gold);
+  margin-left: 6px;
+  margin-right: 2px;
+}
+
+.lang-btn {
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-cream-warm);
+  border-radius: 18px;
+  transition: all 0.25s ease;
+}
+
+.lang-btn.active {
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.lang-btn:not(.active):hover {
+  color: var(--color-gold-light);
+  background: rgba(217, 174, 69, 0.12);
+}
+
+.lang-separator {
+  color: rgba(217, 174, 69, 0.5);
+  font-size: 0.8rem;
+  margin: 0 1px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Welcome Screen / Tap to Open Card
+   -------------------------------------------------------------------------- */
+.welcome-screen-wrap {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 40px;
+  background: var(--grad-velvet);
+  overflow: hidden;
+}
+
+.welcome-header {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 174, 69, 0.15);
+  border: 1px solid rgba(217, 174, 69, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: var(--color-gold-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.welcome-card-outer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(145deg, #7A193B 0%, #54245F 60%, #3B1425 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 0 20px 50px rgba(25, 4, 15, 0.65), 0 0 35px rgba(217, 174, 69, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.welcome-card-outer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(25, 4, 15, 0.75), 0 0 45px rgba(217, 174, 69, 0.45);
+}
+
+.cover-artwork-container {
+  position: relative;
+  border: 1px dashed rgba(217, 174, 69, 0.5);
+  border-radius: 18px;
+  padding: 12px;
+  background: rgba(43, 11, 26, 0.5);
+}
+
+.cover-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border: 1.5px solid var(--color-gold);
+  background: #54245F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-ganesha-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.welcome-card-outer:hover .cover-ganesha-img {
+  transform: scale(1.02);
+}
+
+.telugu-invocation-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: calc(100% - 32px);
+  text-align: center;
+}
+
+.telugu-invocation-pill {
+  display: inline-block;
+  background: rgba(74, 12, 34, 0.9);
+  color: var(--color-gold-bright);
+  font-family: var(--font-telugu-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 24px;
+  border: 1.5px solid var(--color-gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.04em;
+}
+
+.cover-details-ribbon {
+  text-align: center;
+  padding: 18px 12px 10px;
+}
+
+/* Hanging Lamps */
+.hanging-diya {
+  position: absolute;
+  top: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.hanging-diya.diya-left {
+  left: 18px;
+}
+
+.hanging-diya.diya-right {
+  right: 18px;
+}
+
+.diya-chain {
+  width: 2px;
+  height: 38px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-gold) 0px,
+    var(--color-gold) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+.ganesha-header-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.ganesha-icon-svg {
+  filter: drop-shadow(0 4px 12px rgba(217, 174, 69, 0.4));
+}
+
+.sacred-invocation-text {
+  color: var(--color-gold-bright);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+}
+
+.auspicious-blessings-text {
+  color: var(--color-gold-light);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.welcome-invitation-title {
+  color: var(--color-cream);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 12px 0 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-sub-lead {
+  color: var(--color-gold-light);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.welcome-couple-box {
+  background: rgba(25, 4, 15, 0.45);
+  border: 1px solid rgba(217, 174, 69, 0.35);
+  border-radius: 14px;
+  padding: 16px 12px;
+  margin: 16px 0;
+}
+
+.welcome-couple-box .couple-name {
+  color: var(--color-cream);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.welcome-couple-box .couple-name .degree {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.welcome-wids {
+  margin: 4px 0;
+}
+
+.welcome-wids .wids-amp {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--color-gold-bright);
+  line-height: 1;
+}
+
+.welcome-muhurtham-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(217, 174, 69, 0.15);
+  border: 1px solid var(--color-gold);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: var(--color-gold-light);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.open-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-open-invitation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--grad-gold);
+  color: var(--color-maroon-dark);
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 14px 32px;
+  border-radius: 30px;
+  box-shadow: 0 8px 25px rgba(217, 174, 69, 0.45);
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.btn-open-invitation:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(217, 174, 69, 0.65);
+}
+
+.tap-hint-text {
+  color: var(--color-gold-light);
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   3. Decorative SVG Elements & Toranam
+   -------------------------------------------------------------------------- */
+/* Toranam Garland */
+/* Traditional Festive Toranam SVG Banner */
+.toran-container {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto -14px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.toran-svg {
+  width: 100%;
+  height: auto;
+  max-height: 95px;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+/* Corner Ornaments */
+.corner-ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.corner-top-left { top: 12px; left: 12px; }
+.corner-top-right { top: 12px; right: 12px; }
+.corner-bottom-left { bottom: 12px; left: 12px; }
+.corner-bottom-right { bottom: 12px; right: 12px; }
+
+/* Golden Divider */
+.gold-divider-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.gold-divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 50%, transparent 100%);
+}
+
+.gold-divider-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. Main Wedding Card Parchment & Traditional Borders
+   -------------------------------------------------------------------------- */
+.main-invitation-container {
+  width: 100%;
+  max-width: 860px;
+  margin: 24px auto 60px;
+  padding: 0 16px;
+}
+
+.wedding-card-parchment {
+  position: relative;
+  background: var(--grad-cream-card);
+  border: 4px solid var(--color-gold);
+  border-radius: 28px;
+  padding: 16px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(217, 174, 69, 0.3),
+    inset 0 0 20px rgba(217, 174, 69, 0.15);
+  overflow: hidden;
+}
+
+/* Traditional Side Jali / Latticework Gold Border */
+.side-jali-strip {
+  position: absolute;
+  top: 36px;
+  bottom: 36px;
+  width: 22px;
+  z-index: 3;
+  pointer-events: none;
+  background-color: rgba(255, 248, 232, 0.6);
+  background-image: 
+    radial-gradient(circle, var(--color-gold) 1.5px, transparent 1.5px),
+    repeating-linear-gradient(45deg, rgba(217, 174, 69, 0.35) 0px, rgba(217, 174, 69, 0.35) 1.5px, transparent 1.5px, transparent 7px),
+    repeating-linear-gradient(-45deg, rgba(217, 174, 69, 0.35) 0px, rgba(217, 174, 69, 0.35) 1.5px, transparent 1.5px, transparent 7px);
+  background-size: 8px 8px, 10px 10px, 10px 10px;
+  border-left: 2px solid var(--color-gold);
+  border-right: 2px solid var(--color-gold);
+  box-shadow: 
+    0 0 8px rgba(217, 174, 69, 0.25),
+    inset 0 0 6px rgba(217, 174, 69, 0.35);
+}
+
+.side-jali-left {
+  left: 14px;
+}
+
+.side-jali-right {
+  right: 14px;
+}
+
+/* Royal Corner Filigree Ornaments */
+.royal-corner-filigree {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 2px 5px rgba(217, 174, 69, 0.45));
+}
+
+.corner-top-left { top: 12px; left: 12px; }
+.corner-top-right { top: 12px; right: 12px; }
+.corner-bottom-left { bottom: 12px; left: 12px; }
+.corner-bottom-right { bottom: 12px; right: 12px; }
+
+/* Multi-layered Card Border Framing */
+.card-border-ornament {
+  position: relative;
+  border: 2px solid var(--color-gold);
+  border-radius: 20px;
+  padding: 32px 36px 40px;
+  margin: 0 auto;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(217, 174, 69, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 40%, #FFF9EB 100%);
+  box-shadow: 
+    inset 0 0 0 4px #FFF8E8,
+    inset 0 0 0 6px rgba(217, 174, 69, 0.6),
+    inset 0 0 15px rgba(217, 174, 69, 0.12);
+}
+
+/* Scalloped Temple Arch across top of card */
+.temple-arch-header-svg {
+  width: 100%;
+  max-width: 680px;
+  margin: -10px auto 16px;
+  overflow: hidden;
+}
+
+.arch-svg-bar {
+  width: 100%;
+  height: 48px;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(217, 174, 69, 0.35));
+}
+
+.inner-card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Sacred Header */
+.card-sacred-header {
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.card-sacred-header::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: var(--grad-gold);
+  margin: 14px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(217, 174, 69, 0.5);
+}
+
+.ganesha-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.card-sacred-header .sacred-invocation-text {
+  color: var(--color-maroon);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.auspicious-mantra-triad {
+  color: var(--color-gold-dark);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.official-wedding-title {
+  color: var(--color-maroon-dark);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  line-height: 1.35;
+  border-bottom: 2px solid rgba(217, 174, 69, 0.35);
+  padding-bottom: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Section 1: Parents of the Groom
+   -------------------------------------------------------------------------- */
+.family-details-section {
+  background: rgba(255, 248, 232, 0.85);
+  border: 1.5px solid rgba(217, 174, 69, 0.4);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(84, 36, 95, 0.06);
+}
+
+.section-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-maroon);
+  color: var(--color-gold-light);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 8px rgba(109, 23, 53, 0.25);
+}
+
+.parents-names-block {
+  margin-bottom: 14px;
+}
+
+.parent-line {
+  color: var(--color-maroon-deep);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.parent-designation {
+  color: var(--color-green);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.parents-address-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.addr-pin-icon {
+  color: var(--color-gold-dark);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.parents-address-text span {
+  display: block;
+}
+
+.parents-contact-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cell-label-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(217, 174, 69, 0.2);
+  color: var(--color-maroon);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.phone-numbers-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-link {
+  color: var(--color-maroon);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #FFF;
+  border: 1px solid rgba(217, 174, 69, 0.5);
+  transition: all 0.2s ease;
+}
+
+.phone-link:hover {
+  background: var(--color-gold-light);
+  color: var(--color-maroon-dark);
+}
+
+.phone-separator {
+  color: var(--color-gold-dark);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   6. Section 2: Couple Names & Invitation Message
+   -------------------------------------------------------------------------- */
+.couple-names-section {
+  margin-bottom: 36px;
+}
+
+.invitation-lead-card {
+  max-width: 650px;
+  margin: 0 auto 20px;
+  padding: 0 12px;
+}
+
+.invitation-lead-quote {
+  color: var(--color-maroon);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.couple-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid var(--color-gold);
+  border-radius: 18px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(109, 23, 53, 0.1);
+  transition: transform 0.25s ease;
+}
+
+.couple-role-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.couple-fullname {
+  color: var(--color-maroon-dark);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.couple-fullname .title-prefix {
+  color: var(--color-gold-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.qualification-badge {
+  display: inline-block;
+  background: rgba(84, 36, 95, 0.08);
+  color: var(--color-purple);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.couple-family-link {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Knot Connector */
+.wedding-knot-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.knot-line {
+  flex: 1;
+  max-width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 100%);
+}
+
+.wedding-knot-connector .knot-line:last-child {
+  background: linear-gradient(90deg, var(--color-gold) 0%, transparent 100%);
+}
+
+.knot-symbol-circle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-maroon);
+  color: var(--color-gold-light);
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-gold);
+  box-shadow: 0 4px 10px rgba(109, 23, 53, 0.3);
+}
+
+.knot-with-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.heart-icon.fill-gold {
+  fill: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.bride-parents-box {
+  margin-top: 8px;
+}
+
+.bride-daughter-line {
+  color: var(--color-maroon);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.bride-place-tag {
+  color: var(--color-text-dark);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Section 3: Sumuhurtham & Countdown
+   -------------------------------------------------------------------------- */
+.sumuhurtham-section {
+  position: relative;
+  background: linear-gradient(145deg, #FFF9EB 0%, #FBF0D5 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: 22px;
+  padding: 28px 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 28px rgba(217, 174, 69, 0.2);
+}
+
+.sumuhurtham-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  padding: 7px 22px;
+  border-radius: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(217, 174, 69, 0.4);
+}
+
+.sumuhurtham-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sumuhurtham-date-box {
+  margin-bottom: 18px;
+}
+
+.on-lead-text {
+  color: var(--color-gold-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.date-large-golden {
+  color: var(--color-maroon-dark);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+.muhurtham-timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.muhurtham-time-card,
+.muhurtham-lagnam-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(217, 174, 69, 0.5);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.timing-icon {
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+.lagnam-icon {
+  color: var(--color-maroon);
+}
+
+.timing-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.timing-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-maroon-dark);
+}
+
+.lagnam-highlight {
+  color: var(--color-maroon);
+  font-size: 1.15rem;
+}
+
+.traditional-muhurtham-quote {
+  max-width: 650px;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 8px 8px 0;
+  color: var(--color-maroon-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+/* Countdown Grid */
+.countdown-container {
+  margin: 18px 0;
+}
+
+.countdown-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-maroon);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.countdown-card {
+  background: var(--color-maroon);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 75px;
+  box-shadow: 0 4px 10px rgba(109, 23, 53, 0.25);
+}
+
+.countdown-value-box {
+  color: var(--color-gold-light);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: var(--font-serif-title);
+}
+
+.countdown-label {
+  display: block;
+  color: var(--color-cream);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.countdown-alert {
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 14px 0;
+  box-shadow: 0 4px 12px rgba(217, 174, 69, 0.35);
+}
+
+/* Calendar buttons */
+.calendar-actions-wrap {
+  margin-top: 18px;
+}
+
+.calendar-action-lead {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.calendar-buttons-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-calendar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background: #FFFFFF;
+  border: 1px solid var(--color-gold);
+  color: var(--color-maroon-dark);
+}
+
+.btn-calendar:hover {
+  background: var(--color-maroon);
+  color: var(--color-gold-light);
+  border-color: var(--color-maroon);
+}
+
+/* --------------------------------------------------------------------------
+   8. Section 4: Venue & Directions
+   -------------------------------------------------------------------------- */
+.venue-section {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid var(--color-gold);
+  border-radius: 22px;
+  padding: 28px 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 20px rgba(84, 36, 95, 0.08);
+}
+
+.venue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-maroon);
+  color: var(--color-gold-light);
+  padding: 7px 24px;
+  border-radius: 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 8px rgba(109, 23, 53, 0.25);
+}
+
+.venue-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-name-box {
+  margin-bottom: 18px;
+}
+
+.venue-name-title {
+  color: var(--color-maroon-dark);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.venue-address-text {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.venue-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.btn-venue-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-directions {
+  background: var(--color-green);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(56, 102, 65, 0.3);
+}
+
+.btn-directions:hover {
+  background: #2D5234;
+  transform: translateY(-2px);
+}
+
+.btn-copy-addr {
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  box-shadow: 0 4px 12px rgba(217, 174, 69, 0.3);
+}
+
+.btn-copy-addr:hover {
+  transform: translateY(-2px);
+}
+
+.btn-copied-success {
+  background: var(--color-green) !important;
+  color: #FFF !important;
+}
+
+.venue-map-embed-container {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(217, 174, 69, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
+}
+
+.venue-landmark-note {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   9. Section 5: With Best Compliments From
+   -------------------------------------------------------------------------- */
+.compliments-section {
+  background: linear-gradient(135deg, rgba(109, 23, 53, 0.06) 0%, rgba(84, 36, 95, 0.1) 100%);
+  border: 1.5px dashed var(--color-gold);
+  border-radius: 18px;
+  padding: 24px 20px;
+  margin-bottom: 32px;
+}
+
+.compliments-heading {
+  color: var(--color-gold-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.compliments-main-text {
+  color: var(--color-maroon-dark);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.compliments-sub-text {
+  color: var(--color-green);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.subhamasthu-blessing {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   10. Section 6: WhatsApp Sharing & Link Copy
+   -------------------------------------------------------------------------- */
+.share-section {
+  background: #FFFFFF;
+  border: 2px solid var(--color-gold);
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.share-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-maroon-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.share-sublead {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.share-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background: #1EBE5D;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.btn-copy-link {
+  background: var(--color-cream);
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-maroon-dark);
+}
+
+.btn-copy-link:hover {
+  background: var(--color-gold-light);
+}
+
+.btn-copy-link.btn-copied {
+  background: var(--color-green);
+  color: #FFF;
+  border-color: var(--color-green);
+}
+
+.btn-native-share {
+  background: var(--color-purple);
+  color: #FFFFFF;
+}
+
+.btn-native-share:hover {
+  background: var(--color-purple-dark);
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer & Replay Cover
+   -------------------------------------------------------------------------- */
+.wedding-footer {
+  text-align: center;
+  padding: 30px 16px 20px;
+  border-top: 1.5px solid rgba(217, 174, 69, 0.35);
+  margin-top: 24px;
+}
+
+.replay-cover-card {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, rgba(84, 36, 95, 0.4) 0%, rgba(109, 23, 53, 0.5) 100%);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(217, 174, 69, 0.15);
+  text-align: center;
+}
+
+.replay-sparkle {
+  margin-bottom: 8px;
+}
+
+.replay-prompt-text {
+  color: var(--color-cream);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.btn-replay-cover {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--grad-gold);
+  color: var(--color-maroon-deep);
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 28px;
+  box-shadow: 0 6px 20px rgba(217, 174, 69, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.btn-replay-cover:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(217, 174, 69, 0.6);
+}
+
+.btn-replay-cover .replay-icon {
+  transition: transform 0.4s ease;
+}
+
+.btn-replay-cover:hover .replay-icon {
+  transform: rotate(-180deg);
+}
+
+.footer-deepams-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-blessing-symbol {
+  font-size: 1.8rem;
+  color: var(--color-gold-bright);
+  font-weight: 700;
+}
+
+.footer-title {
+  color: var(--color-gold-light);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.footer-blessing-line {
+  color: var(--color-cream-soft);
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+.footer-rights {
+  color: rgba(255, 248, 232, 0.6);
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+}
+
+.btn-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 174, 69, 0.2);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-back-to-top:hover {
+  background: var(--color-gold);
+  color: var(--color-maroon-dark);
+}
