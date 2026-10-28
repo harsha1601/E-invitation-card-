@@ -15,7 +15,7 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
 - **Tap to Open Invitation:** Authentic card experience where guests can tap the welcome envelope or the "Open Wedding Invitation" button, greeted with a celebratory golden and floral petal shower.
 - **Bilingual Support (తెలుగు | English):** Instant language switching between Telugu and English without page refresh, persisted across sessions in `localStorage`.
 - **Auspicious Muhurtham Countdown:** Real-time countdown timer tracking Days, Hours, Minutes, and Seconds until the sacred Makara Lagnam on Wednesday, November 25, 2026.
-- **Calendar Integration:** 
+- **Calendar Integration:**
   - One-tap "Add to Google Calendar"
   - Downloadable Apple / Outlook `.ics` calendar file
 - **Venue & Directions:**
@@ -48,14 +48,17 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
 
 ## 📂 Project Structure
 
-```
+```text
 ├── public/
-│   └── (favicon and public assets)
+│   ├── audio/
+│   │   └── wedding-music.mp3        # Background shehnai audio
+│   └── images/
+│       └── cover-ganesha.png        # Traditional cover artwork
 ├── src/
 │   ├── components/
 │   │   ├── ComplimentsSection.jsx   # "With Best Compliments From: Near & Dear"
 │   │   ├── CountdownTimer.jsx       # Days / Hours / Minutes / Seconds timer
-│   │   ├── CoupleNames.jsx          # Chi. Sivaramu & Chi. Manasa Lakshmi
+│   │   ├── CoupleNames.jsx          # Chi. Sivaramu & Chi. Sou. Manasa Lakshmi
 │   │   ├── FamilyDetails.jsx        # Groom's parents, designation, address, cell
 │   │   ├── Footer.jsx               # Auspicious closing and back-to-top button
 │   │   ├── LanguageSwitcher.jsx     # "తెలుగు | English" switcher pill
@@ -75,6 +78,7 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
 │   ├── App.jsx                      # Main app controller & petal confetti logic
 │   └── main.jsx                     # Application entrypoint
 ├── index.html                       # HTML5 template with Google Telugu fonts
+├── jsconfig.json                    # JavaScript compiler options
 ├── package.json                     # Dependencies & scripts
 ├── vite.config.js                   # Vite configuration
 └── README.md                        # Documentation
@@ -85,29 +89,36 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
 ## 🚀 Installation & Local Development
 
 ### Prerequisites
+
 - Node.js (v18 or higher recommended)
 - npm or yarn
 
 ### Steps
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Start the local development server:**
+
    ```bash
    npm run dev
    ```
+
    Open your browser and navigate to `http://localhost:3000`.
 
 3. **Build for production:**
+
    ```bash
    npm run build
    ```
+
    The optimized production bundle will be generated in the `dist/` directory.
 
 4. **Preview production build locally:**
+
    ```bash
    npm run preview
    ```
@@ -117,6 +128,7 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
 ## 🌐 Deployment Instructions
 
 ### Vercel / Netlify / GitHub Pages
+
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist`
 - The project is fully static and client-side, requiring no backend server.
