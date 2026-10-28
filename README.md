@@ -2,9 +2,7 @@
 
 A traditional, elegant, and mobile-friendly Indian digital wedding invitation website for the auspicious wedding of:
 
-**CHI. SIVARAMU, M.Tech.**
-_with_
-**CHI. KUM. SOU. MANASA LAKSHMI, B.Tech.**
+> **CHI. SIVARAMU, M.Tech.** with **CHI. SOU. MANASA LAKSHMI, B.Tech.**
 
 Designed with the regal aesthetics of a traditional Telugu wedding invitation card: royal purple, deep maroon, auspicious golden accents, scalloped temple arch, Lord Ganesha blessings, mango leaves toranam, and hanging brass deepams.
 
@@ -141,7 +139,7 @@ Designed with the regal aesthetics of a traditional Telugu wedding invitation ca
   - Parents: Smt. Punyamurthy Sridevi & Sri. Punyamurthy Sambasivudu (Rtd., A.O., Agrl., College, Mahanandi)
   - Address: 30/638-J, Industrial Estates, Moolasagaram, NANDYAL, Nandyal District.
   - Contact: 9701786589, 7981085876
-- **Bride:** CHI. KUM. SOU. MANASA LAKSHMI, B.Tech.
+- **Bride:** CHI. SOU. MANASA LAKSHMI, B.Tech.
   - Parents: Only D/o. Smt. Somisetty Susila Sri. Somisetty Narasimha Rao, KADAPA
 - **Date & Sumuhurtham:**
   - Wednesday, the 25th of November, 2026
